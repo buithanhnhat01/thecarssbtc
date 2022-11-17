@@ -1,0 +1,9 @@
+{
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "editor.wordWrap": "bounded",
+    "diffEditor.wordWrap": "on",
+    "editor.wordWrapColumn": 80,
+    "editor.wrappingIndent": "none",
+    "editor.wrappingStrategy": "advanced",
+    "workbench.editor.wrapTabs": true
+}

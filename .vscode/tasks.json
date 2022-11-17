@@ -1,0 +1,20 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "java (buildArtifact)",
+			"mainClass": "com.fptpoly.main.WebsideCarApplication",
+			"targetPath": "${workspaceFolder}/${workspaceFolderBasename}.jar",
+			"elements": [
+				"${compileOutput}",
+				"${dependencies}"
+			],
+			"problemMatcher": [],
+			"label": "java (buildArtifact): Webside_Car",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}

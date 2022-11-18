@@ -651,19 +651,15 @@
                                 </td>
                                 <td>
                     <span th:if="${donhang.trangthai=='PENDING'}" class="badge badge-soft-warning">
-                      <span class="legend-indicator bg-warning"><label style="padding-left: 15px"
-                                                                       th:text="${donhang.trangthai}"/></span></span>
+                        <span class="legend-indicator bg-warning"><label style="padding-left: 15px"><th:block th:text="${donhang.trangthai}" /></label></span></span>
                                     </span>
                                     <span th:if="${donhang.trangthai=='SUCCESS'}" class="badge badge-soft-success">
-                                    <span class="legend-indicator bg-success"><label style="padding-left: 15px"
-                                                                                     th:text="${donhang.trangthai}"/></span></span>
+                                    <span class="legend-indicator bg-success"><label style="padding-left: 15px"><th:block th:text="${donhang.trangthai}" /></label></span></span>
                                     </span>
                                     <span th:if="${donhang.trangthai=='CANCEL'}" class="badge badge-soft-danger">
-                      <span class="legend-indicator bg-danger"><label style="padding-left: 15px"
-                                                                      th:text="${donhang.trangthai}"/></span></span>
+                      <span class="legend-indicator bg-danger"><label style="padding-left: 15px"><th:block th:text="${donhang.trangthai}" /></label></span></span>
                                     <span th:if="${donhang.trangthai=='PACKING'}" class="badge badge-soft-primary">
-                      <span class="legend-indicator bg-primary"><label style="padding-left: 15px"
-                                                                      th:text="${donhang.trangthai}"/></span></span>
+                      <span class="legend-indicator bg-primary"><<label style="padding-left: 15px"><th:block th:text="${donhang.trangthai}" /></label></span></span>
                                     </span>
                                 </td>
                                 <td><label

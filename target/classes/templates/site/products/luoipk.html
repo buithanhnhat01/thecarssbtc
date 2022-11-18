@@ -52,16 +52,16 @@
           }
         }).then(_success, _error);
       }
-
+// Nhật làm
       $scope.pager = {
         page: 0,
         size: 10,
-        get items(){
+        get lks(){
             var start = this.page * this.size;
-            return $scope.items.slice(start, start + this.size);
+            return $scope.lks.slice(start, start + this.size);
         },
         get count(){
-            return Math.ceil(1.0 * $scope.items.length/ this.size);
+            return Math.ceil(1.0 * $scope.lks.length/ this.size);
         },
         first(){
             this.page = 0;
@@ -150,21 +150,23 @@
                   </li>
                 </ul>
               </div>
+              <!-- Nhật làm -->
               <div class="pages">
                 <label>Trang:</label>
                 <ul class="pagination">
-                  <li><a href="#">&laquo;</a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">&raquo;</a></li>
+                  <li><a href="" ng-click="pager.prev()">&laquo;</a></li>
+                  <li><a href="">{{pager.page + 1}} of {{pager.count}} </a></li>
+                  <li><a href=""ng-click="pager.next()">&raquo;</a></li>
                 </ul>
               </div>
             </div>
           </div>
+
           <div class="category-products" ng-repeat="lk in lks|limitTo:10:0">
+
+          
+          
+
             <ol class="products-list" id="products-list" >
           <li class="item first" >
             <div class="product-image"> <a th:href="@{/home/phukien-detail?idlk={{lk.malk}}}" title="HTC Rhyme Sense"> 
@@ -492,7 +494,7 @@
              <p class="subtotal"> <span class="label">Tổng giỏ hàng:</span> <span class="price">$299.00</span> </p>
            </div>
            <div class="ajax-checkout">
-             <button type="button" title="Checkout" class="button button-checkout" onClick="#"> <span>Thanh toán</span> </button>
+             <button type="button" title="Checkout" class="button button-checkout" onClick=""> <span>Thanh toán</span> </button>
            </div>
            <p class="block-subtitle">Các mục được thêm gần đây</p>
            <ul id="cart-sidebar" class="mini-products-list">
@@ -532,19 +534,19 @@
         <div class="block-content">
            <ol id="compare-items">
                    <li class="item odd">
-                  <a href="#" class="btn-remove1" onClick="#"></a>
+                  <a href="#" class="btn-remove1" onClick=""></a>
                <a class="product-name" href="#">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>            </li>
             <li class="item odd">
-                  <a href="#" class="btn-remove1" onClick="#"></a>
+                  <a href="#" class="btn-remove1" onClick=""></a>
                <a class="product-name" href="#">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>            </li>
             <li class="item odd">
-                  <a href="#" class="btn-remove1" onClick="#"></a>
+                  <a href="#" class="btn-remove1" onClick=""></a>
                <a class="product-name" href="#">Gorgeous Mercedes-Benz E-Class All-Terrain Luxury</a>            </li>
            
              </ol>
       
        <div class="ajax-checkout">
-           <button type="button" title="Compare" class="button button-compare" onClick="#"><span>So sánh</span></button>
+           <button type="button" title="Compare" class="button button-compare" onClick=""><span>So sánh</span></button>
            <button class="button button-clear" href="#"><span>Làm mới</span></button>
        </div><!--ajax-checkout-->
        </div>

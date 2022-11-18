@@ -3,6 +3,7 @@ package com.fptpoly.main.Controller;
 
 import com.fptpoly.main.Dao.*;
 import com.fptpoly.main.Entity.Billaccessories;
+import com.fptpoly.main.Util._MailService;
 import groovy.util.logging.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,6 +36,8 @@ public class AdminController {
     BillaccessoriesRepository billaccessoriesRepository;
     @Autowired
     BillaccessoriesdetailRepository billaccessoriesdetailRepository;
+    @Autowired
+    _MailService mailService;
 
     /*@GetMapping("/Admin")
     public String admin(Model model){
@@ -77,8 +80,10 @@ public class AdminController {
             billaccessories.setNgaynhan(new Date());
             billaccessories.setTrangthai(sta);
             billaccessoriesRepository.save(billaccessories);
+            if(btn.equals("PENDING")){
+                mailService.sendEmail("longzu102@gmail.com","XÁC NHẬN ĐƠN HÀNG","Đơn Hàng #"+mahds[i]+" Đã Đươc Xác Nhận");
+            }
         }
-
         return "redirect:/Admin?status=PENDING";
     }
 
@@ -93,6 +98,11 @@ public class AdminController {
     @RequestMapping("admin/product-car")
     public String product_car(Model model) {
         return "admin/pages/E-commerce/products/product-car";
+    }
+
+    @GetMapping("admin/product/edit")
+    public String editproduct(){
+        return "admin/pages/E-commerce/";
     }
 
     @RequestMapping("admin/product-phukien")

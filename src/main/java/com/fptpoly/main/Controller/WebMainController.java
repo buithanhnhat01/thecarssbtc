@@ -3,6 +3,7 @@ package com.fptpoly.main.Controller;
 import com.fptpoly.main.Dao.*;
 import com.fptpoly.main.Entity.*;
 import com.fptpoly.main.Util._CookieService;
+import com.fptpoly.main.Util._DateService;
 import groovy.util.logging.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 @Controller
@@ -27,6 +30,8 @@ public class WebMainController {
 
     public static Logger logger = LoggerFactory.getLogger(WebMainController.class);
 
+    @Autowired
+    _DateService dateService;
     @Autowired
     CarRepository carRepository;
     @Autowired
@@ -202,12 +207,15 @@ public class WebMainController {
     // Danh sách phụ kiện
     @GetMapping("home/listphukien")
     public String listphukien(Model model) {
+
         model.addAttribute("Alllk", accessoriesRepository.findAll());
         return "site/products/listphukien";
     }
 
     @GetMapping("home/luoipk")
     public String luoipk(Model model) {
+        /*System.out.println(accessoriesRepository.findAll(PageRequest.of(0,10)).getTotalPages());
+        model.addAttribute("Page",accessoriesRepository.findAll(PageRequest.of(0,10)));*/
         return "site/products/luoipk";
     }
 
@@ -334,8 +342,8 @@ public class WebMainController {
     }
 
     @GetMapping("home/LichHen")
-    public String appointment(Model model,Principal principal) {
-        System.out.println(appointmentRepository.fillappointment(principal.getName()).get(0).getLoai());
+    public String appointment(Model model,Principal principal) throws ParseException {
+        System.out.println(appointmentRepository.find(new Date()).size());
         model.addAttribute("appontments",appointmentRepository.fillappointment(principal.getName()));
         return "site/user/lichhen";
     }

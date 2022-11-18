@@ -31,6 +31,7 @@
       function reload(){
         $http.get('/LinhKien').then(response =>{
           $scope.lks = response.data;
+          console.log($scope.lks)
         })
         $http.get('/Inforcart').then(response =>{
           $scope.mycart = response.data;
@@ -160,8 +161,12 @@
               </div>
             </div>
           </div>
-          <!-- Nhật làm -->
-          <div class="category-products" ng-repeat="lk in pager.lks">
+
+          <div class="category-products" ng-repeat="lk in lks|limitTo:10:0">
+
+          
+          
+
             <ol class="products-list" id="products-list" >
           <li class="item first" >
             <div class="product-image"> <a th:href="@{/home/phukien-detail?idlk={{lk.malk}}}" title="HTC Rhyme Sense"> 
@@ -182,7 +187,7 @@
               </div>
               <div class="price-box">
                 <p class="old-price"> <span class="price-label"></span> <span id="old-price-212" class="price"> $442.99 </span> </p>
-                <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price"> ${{lk.gia}} </span> </p>
+                <p class="special-price"> <span class="price-label"></span> <span id="product-price-212" class="price">{{lk.gia|number:0}} VNĐ</span> </p>
               </div>
               <div class="add-to-box">
                 <div class="add-to-cart">

@@ -146,6 +146,12 @@ public class Index {
     public List accessories() {
         return accessoriesRepository.findAll();
     }
+// Nhật làm
+    // danh sách tất cả lich hen
+    @GetMapping("LichHen")
+    public List lichs() {
+        return appointmentRepository.findAll();
+    }
 
     // danh sách xe giảm giá
     @GetMapping("CarsSale")
